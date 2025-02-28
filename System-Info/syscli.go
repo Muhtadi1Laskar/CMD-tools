@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 	"runtime"
 )
 
@@ -23,6 +24,16 @@ func memoryStat() {
 	fmt.Printf("NumGC = %v\n", m.NumGC)
 }
 
+func hostInfo() {
+	hostName, err := os.Hostname()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println("Hostname:", hostName)
+}
+
 func bToMB(b uint64) uint64 {
 	return b / 1024 / 1024
 }
@@ -38,6 +49,8 @@ func main() {
 		basicInfo()
 	case "memory info":
 		memoryStat()
+	case "host info":
+		hostInfo()
 	default:
 		fmt.Println("Invalid type")
 	}
