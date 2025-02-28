@@ -1,4 +1,4 @@
-Command Line Tools in Go
+# Command Line Tools in Go
 A collection of lightweight and efficient command-line tools built with Go. Each tool is designed to enhance productivity, automate tasks, and simplify everyday operations.
 
 🚀 Tools Included:
