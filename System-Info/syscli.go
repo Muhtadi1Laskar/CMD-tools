@@ -42,8 +42,12 @@ func main() {
 	fmt.Printf("\nBasic Info\n")
 	basicInfo()
 
+	fmt.Printf("----------\n")
+
 	fmt.Printf("\nMemory Stat\n")
 	memoryStat()
+
+	fmt.Printf("----------\n")
 
 	fmt.Printf("\nHost Info\n")
 	hostInfo()
