@@ -1,7 +1,6 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"os"
 	"runtime"
@@ -40,18 +39,12 @@ func bToMB(b uint64) uint64 {
 
 
 func main() {
-	info := flag.String("info", "", "The information type")
+	fmt.Printf("\nBasic Info\n")
+	basicInfo()
 
-	flag.Parse()
+	fmt.Printf("\nMemory Stat\n")
+	memoryStat()
 
-	switch *info {
-	case "basic info":
-		basicInfo()
-	case "memory info":
-		memoryStat()
-	case "host info":
-		hostInfo()
-	default:
-		fmt.Println("Invalid type")
-	}
+	fmt.Printf("\nHost Info\n")
+	hostInfo()
 }
