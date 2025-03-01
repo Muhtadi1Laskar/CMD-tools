@@ -44,8 +44,8 @@ func fetchJSON(url string, target any) error {
 }
 
 // getIDs fetches the list of story IDs from the Hacker News API.
-func getIDs() ([]int, error) {
-	url := "https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty"
+func getIDs(newsType string) ([]int, error) {
+	url := "https://hacker-news.firebaseio.com/v0/" + newsType + "stories.json?print=pretty"
 
 	var ids []int
 	if err := fetchJSON(url, &ids); err != nil {
@@ -101,10 +101,11 @@ func fetchStories(ids []int) ([]Story, error) {
 
 func main() {
 	totalIds := flag.Int("total", 10, "total ids")
+	newsType := flag.String("newsType", "", "type of news")
 
 	flag.Parse()
 	// Fetch story IDs
-	ids, err := getIDs()
+	ids, err := getIDs(*newsType)
 	if err != nil {
 		log.Fatalf("Error fetching IDs: %v", err)
 	}
@@ -117,10 +118,10 @@ func main() {
 
 	// Print stories
 	for _, story := range stories {
+		fmt.Println("Title: ", story.Title)
 		fmt.Println("By: ", story.By)
 		fmt.Println("Id: ", story.ID)
 		fmt.Println("Score: ", story.Score)
-		fmt.Println("Title: ", story.Title)
 		fmt.Println("URL: ", story.URL)
 		fmt.Println()
 	}
