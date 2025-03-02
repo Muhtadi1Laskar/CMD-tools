@@ -9,7 +9,6 @@ import (
 	"os"
 )
 
-
 type Links struct {
 	Homepage          []string `json:"homepage"`
 	Whitepaper        string   `json:"whitepaper"`
