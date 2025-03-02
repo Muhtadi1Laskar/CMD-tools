@@ -65,6 +65,8 @@ type Description struct {
 	EN string `json:"en"`
 }
 
+
+
 type CoinInfo struct {
 	ID               string         `json:"id"`
 	Symbol           string         `json:"symbol"`
